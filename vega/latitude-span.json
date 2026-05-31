@@ -1,0 +1,221 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/lat_span.json"
+  },
+  "width": 460,
+  "height": 240,
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#999",
+        "strokeDash": [
+          3,
+          4
+        ],
+        "opacity": 0.5
+      },
+      "encoding": {
+        "x": {
+          "datum": -23.5,
+          "type": "quantitative"
+        },
+        "y": {
+          "datum": "Stuart Highway"
+        },
+        "y2": {
+          "datum": "Great Ocean Road"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "bar",
+        "height": 14,
+        "cornerRadius": 7
+      },
+      "encoding": {
+        "y": {
+          "field": "route",
+          "type": "nominal",
+          "sort": {
+            "field": "lat_span_deg",
+            "order": "descending"
+          },
+          "title": null,
+          "axis": {
+            "labelFontSize": 13,
+            "labelLimit": 200,
+            "ticks": false,
+            "domain": false
+          }
+        },
+        "x": {
+          "field": "south_lat",
+          "type": "quantitative",
+          "title": "Latitude (\u00b0S)",
+          "scale": {
+            "domain": [
+              -40,
+              -10
+            ]
+          },
+          "axis": {
+            "labelExpr": "abs(datum.value) + '\u00b0S'",
+            "labelFontSize": 11,
+            "titleFontSize": 12,
+            "grid": true,
+            "gridOpacity": 0.3
+          }
+        },
+        "x2": {
+          "field": "north_lat"
+        },
+        "color": {
+          "field": "route",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Great Ocean Road",
+              "Gibb River Road",
+              "Stuart Highway",
+              "Pacific Highway",
+              "Nullarbor Crossing"
+            ],
+            "range": [
+              "#C0612F",
+              "#1F7A5A",
+              "#3E6FB0",
+              "#B23A6E",
+              "#E0A82E"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "route",
+            "type": "nominal"
+          },
+          {
+            "field": "south_lat",
+            "type": "quantitative",
+            "title": "South (\u00b0)",
+            "format": ".1f"
+          },
+          {
+            "field": "north_lat",
+            "type": "quantitative",
+            "title": "North (\u00b0)",
+            "format": ".1f"
+          },
+          {
+            "field": "lat_span_deg",
+            "type": "quantitative",
+            "title": "Span (\u00b0)"
+          },
+          {
+            "field": "climate_zones",
+            "type": "nominal",
+            "title": "Climate"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#222"
+      },
+      "encoding": {
+        "y": {
+          "field": "route",
+          "type": "nominal",
+          "sort": {
+            "field": "lat_span_deg",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "north_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "span_label",
+          "type": "nominal"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.lat_span_deg + '\u00b0 span'",
+          "as": "span_label"
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "x": -23.5,
+            "label": "Tropic of Capricorn"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "fontSize": 11,
+        "fontStyle": "italic",
+        "color": "#777",
+        "y": -8
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, sans-serif",
+    "background": "transparent",
+    "axis": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#6B635A",
+      "titleColor": "#2A2520",
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "domainColor": "#D8CFBE",
+      "tickColor": "#D8CFBE",
+      "gridColor": "#EDE7DC",
+      "gridOpacity": 0.6
+    },
+    "legend": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520",
+      "titleColor": "#2A2520",
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    },
+    "header": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520"
+    }
+  }
+}

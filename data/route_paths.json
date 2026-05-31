@@ -1,0 +1,33 @@
+[
+  {"route":"Great Ocean Road","short":"GOR","order":1,"town":"Torquay","lat":-38.33,"lon":144.32},
+  {"route":"Great Ocean Road","short":"GOR","order":2,"town":"Lorne","lat":-38.54,"lon":143.97},
+  {"route":"Great Ocean Road","short":"GOR","order":3,"town":"Apollo Bay","lat":-38.75,"lon":143.67},
+  {"route":"Great Ocean Road","short":"GOR","order":4,"town":"Port Campbell","lat":-38.62,"lon":142.99},
+  {"route":"Great Ocean Road","short":"GOR","order":5,"town":"Allansford","lat":-38.39,"lon":142.59},
+
+  {"route":"Gibb River Road","short":"Gibb","order":1,"town":"Derby","lat":-17.30,"lon":123.63},
+  {"route":"Gibb River Road","short":"Gibb","order":2,"town":"Windjana Gorge","lat":-17.42,"lon":124.95},
+  {"route":"Gibb River Road","short":"Gibb","order":3,"town":"Mount Barnett","lat":-16.67,"lon":125.92},
+  {"route":"Gibb River Road","short":"Gibb","order":4,"town":"Pentecost River","lat":-15.90,"lon":127.88},
+  {"route":"Gibb River Road","short":"Gibb","order":5,"town":"Kununurra","lat":-15.77,"lon":128.74},
+
+  {"route":"Stuart Highway","short":"Stuart","order":1,"town":"Darwin","lat":-12.46,"lon":130.84},
+  {"route":"Stuart Highway","short":"Stuart","order":2,"town":"Katherine","lat":-14.46,"lon":132.26},
+  {"route":"Stuart Highway","short":"Stuart","order":3,"town":"Tennant Creek","lat":-19.65,"lon":134.19},
+  {"route":"Stuart Highway","short":"Stuart","order":4,"town":"Alice Springs","lat":-23.70,"lon":133.88},
+  {"route":"Stuart Highway","short":"Stuart","order":5,"town":"Coober Pedy","lat":-29.01,"lon":134.75},
+  {"route":"Stuart Highway","short":"Stuart","order":6,"town":"Port Augusta","lat":-32.49,"lon":137.77},
+
+  {"route":"Pacific Highway","short":"Pacific","order":1,"town":"Sydney","lat":-33.87,"lon":151.21},
+  {"route":"Pacific Highway","short":"Pacific","order":2,"town":"Newcastle","lat":-32.93,"lon":151.78},
+  {"route":"Pacific Highway","short":"Pacific","order":3,"town":"Port Macquarie","lat":-31.43,"lon":152.91},
+  {"route":"Pacific Highway","short":"Pacific","order":4,"town":"Coffs Harbour","lat":-30.30,"lon":153.11},
+  {"route":"Pacific Highway","short":"Pacific","order":5,"town":"Byron Bay","lat":-28.64,"lon":153.61},
+  {"route":"Pacific Highway","short":"Pacific","order":6,"town":"Brisbane","lat":-27.47,"lon":153.03},
+
+  {"route":"Nullarbor Crossing","short":"Null","order":1,"town":"Norseman","lat":-32.20,"lon":121.78},
+  {"route":"Nullarbor Crossing","short":"Null","order":2,"town":"Caiguna","lat":-32.27,"lon":125.49},
+  {"route":"Nullarbor Crossing","short":"Null","order":3,"town":"Eucla","lat":-31.68,"lon":128.89},
+  {"route":"Nullarbor Crossing","short":"Null","order":4,"town":"Nullarbor Roadhouse","lat":-31.45,"lon":130.90},
+  {"route":"Nullarbor Crossing","short":"Null","order":5,"town":"Ceduna","lat":-32.13,"lon":133.67}
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "route": "Great Ocean Road",
+    "south_lat": -38.75,
+    "north_lat": -38.33,
+    "lat_span_deg": 0.4,
+    "distance_km": 243,
+    "climate_zones": "temperate"
+  },
+  {
+    "route": "Gibb River Road",
+    "south_lat": -17.42,
+    "north_lat": -15.77,
+    "lat_span_deg": 1.7,
+    "distance_km": 660,
+    "climate_zones": "tropical"
+  },
+  {
+    "route": "Stuart Highway",
+    "south_lat": -32.49,
+    "north_lat": -12.46,
+    "lat_span_deg": 20.0,
+    "distance_km": 2720,
+    "climate_zones": "tropical to temperate"
+  },
+  {
+    "route": "Pacific Highway",
+    "south_lat": -33.87,
+    "north_lat": -27.47,
+    "lat_span_deg": 6.4,
+    "distance_km": 790,
+    "climate_zones": "temperate"
+  },
+  {
+    "route": "Nullarbor Crossing",
+    "south_lat": -32.27,
+    "north_lat": -31.45,
+    "lat_span_deg": 0.8,
+    "distance_km": 1200,
+    "climate_zones": "temperate"
+  }
+]

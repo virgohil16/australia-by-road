@@ -1,0 +1,10 @@
+[
+  {"state": "New South Wales", "STATE_NAME": "New South Wales", "spend_billion": 42.7, "trips_million": 40.9, "source": "TRA via Allied Passport, year ending March 2024"},
+  {"state": "Queensland",      "STATE_NAME": "Queensland",      "spend_billion": 34.0, "trips_million": 25.0, "source": "TRA ($93.2M/day x 365), year ending Dec 2023"},
+  {"state": "Victoria",        "STATE_NAME": "Victoria",        "spend_billion": 28.0, "trips_million": 22.0, "source": "TRA State Tourism Satellite Account 2023-24"},
+  {"state": "Western Australia","STATE_NAME": "Western Australia","spend_billion": 14.0, "trips_million": 11.0, "source": "TRA State Tourism Satellite Account 2023-24"},
+  {"state": "South Australia",  "STATE_NAME": "South Australia", "spend_billion": 6.0,  "trips_million": 7.0,  "source": "TRA via Allied Passport, March 2024"},
+  {"state": "Tasmania",         "STATE_NAME": "Tasmania",        "spend_billion": 4.0,  "trips_million": 3.0,  "source": "TRA via Allied Passport, March 2024"},
+  {"state": "Northern Territory","STATE_NAME": "Northern Territory","spend_billion": 2.4, "trips_million": 2.1, "source": "TRA State Tourism Satellite Account 2023-24"},
+  {"state": "Australian Capital Territory","STATE_NAME": "Australian Capital Territory","spend_billion": 1.8, "trips_million": 2.0, "source": "TRA State Tourism Satellite Account 2023-24"}
+]

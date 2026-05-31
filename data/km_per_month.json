@@ -1,0 +1,37 @@
+[
+  {
+    "route": "Stuart Highway",
+    "distance_km": 2720,
+    "ideal_months": 12,
+    "km_per_ideal_month": 227,
+    "state": "NT / SA"
+  },
+  {
+    "route": "Pacific Highway",
+    "distance_km": 790,
+    "ideal_months": 6,
+    "km_per_ideal_month": 132,
+    "state": "NSW / QLD"
+  },
+  {
+    "route": "Gibb River Road",
+    "distance_km": 660,
+    "ideal_months": 6,
+    "km_per_ideal_month": 110,
+    "state": "WA"
+  },
+  {
+    "route": "Nullarbor Crossing",
+    "distance_km": 1200,
+    "ideal_months": 12,
+    "km_per_ideal_month": 100,
+    "state": "WA / SA"
+  },
+  {
+    "route": "Great Ocean Road",
+    "distance_km": 243,
+    "ideal_months": 9,
+    "km_per_ideal_month": 27,
+    "state": "VIC"
+  }
+]

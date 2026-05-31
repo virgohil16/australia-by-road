@@ -1,0 +1,117 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 620,
+  "height": 460,
+  "projection": {
+    "type": "mercator",
+    "center": [
+      134,
+      -27
+    ],
+    "scale": 640
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/aus_states.json",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "url": "data/tourism_spend.json"
+            },
+            "key": "STATE_NAME",
+            "fields": [
+              "spend_billion",
+              "trips_million",
+              "source"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "spend_billion",
+          "type": "quantitative",
+          "title": "Spend ($B)",
+          "scale": {
+            "scheme": "oranges",
+            "domain": [
+              0,
+              45
+            ]
+          },
+          "legend": {
+            "orient": "bottom-right",
+            "gradientLength": 120,
+            "titleFontSize": 12,
+            "labelFontSize": 11,
+            "format": "$,.0f"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.STATE_NAME",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "spend_billion",
+            "type": "quantitative",
+            "title": "Overnight spend ($B)",
+            "format": ".1f"
+          },
+          {
+            "field": "trips_million",
+            "type": "quantitative",
+            "title": "Overnight trips (M)",
+            "format": ".1f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, sans-serif",
+    "background": "transparent",
+    "axis": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#6B635A",
+      "titleColor": "#2A2520",
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "domainColor": "#D8CFBE",
+      "tickColor": "#D8CFBE",
+      "gridColor": "#EDE7DC",
+      "gridOpacity": 0.6
+    },
+    "legend": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520",
+      "titleColor": "#2A2520",
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    },
+    "header": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520"
+    }
+  }
+}

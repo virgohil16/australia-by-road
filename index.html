@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Australia by Road &mdash; When to drive the country's five iconic routes</title>
+  <meta name="description" content="A data visualisation of Australia's five iconic road trips, exploring when to drive each one based on temperature and rainfall." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+<nav class="side-nav" aria-label="Section navigation">
+  <a href="#hero" data-target="hero">01</a>
+  <a href="#context" data-target="context">02</a>
+  <a href="#routes" data-target="routes">03</a>
+  <a href="#glance" data-target="glance">04</a>
+  <a href="#argument" data-target="argument">05</a>
+  <a href="#temperature" data-target="temperature">06</a>
+  <a href="#rain" data-target="rain">07</a>
+  <a href="#latitude" data-target="latitude">08</a>
+  <a href="#fingerprint" data-target="fingerprint">09</a>
+  <a href="#gibb" data-target="gibb">10</a>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="container">
+    <div>
+      <p class="eyebrow">A data story about Australian road trips</p>
+      <h1>Australia by Road</h1>
+      <p class="lead">
+        Five iconic drives. Five very different climates. This site argues a single idea:
+        <em>when</em> you go matters more than <em>where</em> you go. Some Australian roads
+        are forgiving year-round. Others have a narrow weather window &mdash; miss it, and
+        you get a closed road, a heatwave, or a washout.
+      </p>
+      <div class="stats">
+        <div class="stat"><span class="num">$110B</span><span class="label">Domestic spend, 2024</span></div>
+        <div class="stat"><span class="num">115M</span><span class="label">Overnight trips/year</span></div>
+        <div class="stat"><span class="num">5</span><span class="label">Iconic routes ahead</span></div>
+      </div>
+      <p class="byline">By Vir Gohil &middot; Data Visualisation 2 &middot; 2026</p>
+    </div>
+
+  </div>
+</header>
+
+<section id="context">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">01 &middot; The scale</p>
+      <h2>NSW collects almost half the country's road-trip spend</h2>
+      <p>Before we meet the five routes, a sense of how big the prize is. Australians spend $110&nbsp;billion a year on overnight travel &mdash; but only three states see most of the money. The same three states that, not coincidentally, have the easiest weather.</p>
+    </div>
+    <div class="two-col">
+      <div class="chart-col">
+        <div class="chart-wrap"><div id="c-choropleth"></div></div>
+        <p class="chart-caption">Hover for state-level figures. Source: Tourism Research Australia, 2023&ndash;24.</p>
+      </div>
+      <aside class="info-col">
+        <h4>By the numbers</h4>
+        <div class="stat-list">
+          <div class="stat-row"><span class="label">New South Wales</span><span class="value">$42.7B</span></div>
+          <div class="stat-row"><span class="label">Queensland</span><span class="value">$34.0B</span></div>
+          <div class="stat-row"><span class="label">Victoria</span><span class="value">$28.0B</span></div>
+          <div class="stat-row"><span class="label">Western Australia</span><span class="value">$14.0B</span></div>
+          <div class="stat-row"><span class="label">South Australia</span><span class="value">$6.0B</span></div>
+          <div class="stat-row"><span class="label">Tasmania</span><span class="value">$4.0B</span></div>
+          <div class="stat-row"><span class="label">Northern Territory</span><span class="value">$2.4B</span></div>
+          <div class="stat-row"><span class="label">ACT</span><span class="value">$1.8B</span></div>
+        </div>
+        <p class="takeaway">The top three states capture 79% of the spend. The NT and Tasmania, combined, collect less than 5%.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="routes">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">02 &middot; The five routes</p>
+      <h2>Five drives, every climate zone</h2>
+      <p>Each line on the map is a real road. They were chosen for geographic spread &mdash; one in every climate zone, from the tropical north to the cool south, from the Pacific coast to the Indian Ocean.</p>
+    </div>
+    <div class="two-col">
+      <div class="chart-col">
+        <div class="chart-wrap"><div id="c-hero-map"></div></div>
+        <p class="chart-caption">Coordinates assembled from official tourism and road authorities. Base map: <a href="https://github.com/rowanhogan/australian-states" target="_blank" rel="noopener">rowanhogan/australian-states</a>.</p>
+      </div>
+      <aside class="info-col">
+        <h4>The lineup</h4>
+        <div class="route-legend">
+          <div class="route-row"><span class="swatch" style="background:#3E6FB0"></span><span class="name">Stuart Highway<span class="endpoints">Darwin &rarr; Port Augusta</span></span><span class="dist">2,720 km</span></div>
+          <div class="route-row"><span class="swatch" style="background:#E0A82E"></span><span class="name">Nullarbor Crossing<span class="endpoints">Norseman &rarr; Ceduna</span></span><span class="dist">1,200 km</span></div>
+          <div class="route-row"><span class="swatch" style="background:#B23A6E"></span><span class="name">Pacific Highway<span class="endpoints">Sydney &rarr; Brisbane</span></span><span class="dist">790 km</span></div>
+          <div class="route-row"><span class="swatch" style="background:#1F7A5A"></span><span class="name">Gibb River Road<span class="endpoints">Derby &rarr; Kununurra</span></span><span class="dist">660 km</span></div>
+          <div class="route-row"><span class="swatch" style="background:#C0612F"></span><span class="name">Great Ocean Road<span class="endpoints">Torquay &rarr; Allansford</span></span><span class="dist">243 km</span></div>
+        </div>
+        <p class="takeaway">The Stuart Highway is more than eleven times longer than the Great Ocean Road. The two extremes are crossing the country versus crossing a weekend.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="glance">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">03 &middot; At a glance</p>
+      <h2>Distance is only half the planning problem</h2>
+      <p>The bigger question is not how long each road is &mdash; it's how many months of the year you can comfortably drive it. A short road with a wide window beats a long road with a closed one. The next chart introduces the metric this whole site is built on.</p>
+    </div>
+
+    <!-- Sub-section A: route cards -->
+    <div class="sub-block">
+      <h3 class="sub-head">Distance, days, endpoints</h3>
+      <div class="chart-wrap"><div id="c-route-cards"></div></div>
+      <p class="chart-caption">Driving days assume a comfortable ~500 km/day touring pace.</p>
+    </div>
+
+    <!-- Visual divider -->
+    <hr class="section-divider" />
+
+    <!-- Sub-section B: km per ideal month -->
+    <div class="sub-block">
+      <h3 class="sub-head">Km per available month</h3>
+      <p class="sub-intro">Total distance &divide; ideal-driving months gives the daily reality. <strong>The Stuart packs 227&nbsp;km into every usable month; the Great Ocean Road just 27.</strong> Same kind of road trip in name only.</p>
+      <div class="chart-wrap"><div id="c-km-per-month"></div></div>
+      <p class="chart-caption">Derived: distance &divide; count of months rated &ldquo;Ideal&rdquo; on the drive score.</p>
+    </div>
+  </div>
+</section>
+
+<section id="argument">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">04 &middot; The argument</p>
+      <h2>When you go matters more than where</h2>
+      <p>This chart is the heart of the site. Each cell is one month on one route, coloured by a <strong>drive score</strong> &mdash; a custom metric combining temperature and rainfall. Green means go; red means avoid. Some routes glow green year-round. Others have a narrow window.</p>
+    </div>
+    <div class="two-col">
+      <div class="chart-col">
+        <div class="chart-wrap"><div id="c-seasonality"></div></div>
+        <p class="chart-caption">Inputs: Bureau of Meteorology long-term monthly averages for one representative town per route.</p>
+      </div>
+      <aside class="info-col">
+        <div class="formula">
+          <h4>How the drive score works</h4>
+          <div class="rule"><span class="cond">Temp &gt; 33&deg;C</span><span class="arrow">&rarr;</span><span class="effect">heat penalty</span></div>
+          <div class="rule"><span class="cond">Temp &lt; 18&deg;C</span><span class="arrow">&rarr;</span><span class="effect">cold penalty</span></div>
+          <div class="rule"><span class="cond">Rain &gt; 75&nbsp;mm</span><span class="arrow">&rarr;</span><span class="effect">wet penalty</span></div>
+          <p class="note">Score = 100 &minus; total penalties (capped at 0). Thresholds chosen for a comfort-focused holidaymaker, not a hardened outback traveller.</p>
+        </div>
+        <p class="takeaway" style="margin-top: var(--s-4);">Look at the contrast. Nullarbor &amp; Stuart Highway: green every month. Gibb River Road: half the year unusable. Same continent, different rules.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="temperature">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">05 &middot; The temperature behind the score</p>
+      <h2>Stuart Highway swings 16&deg;C across the year &mdash; Gibb barely moves</h2>
+      <p>Five small charts, one per route, showing the average monthly maximum temperature at a representative town. Each point is coloured by its drive rating. Watch which routes swing widely (the Stuart: 36&deg;C summer, 20&deg;C winter) and which barely change (the Gibb is hot regardless of when you go).</p>
+    </div>
+    <div class="chart-wrap"><div id="c-climate-multiples"></div></div>
+    <p class="chart-caption">Source: Bureau of Meteorology long-term averages. Stations: Derby (WA), Alice Springs (NT), Coffs Harbour (NSW), Apollo Bay (VIC), Nullarbor (SA).</p>
+  </div>
+</section>
+
+<section id="rain">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">06 &middot; The rain behind the score</p>
+      <h2>The Pacific Highway is actually wetter than the Gibb &mdash; on average</h2>
+      <p>Heat is half the story; rain is the other. The Gibb's rain is a violent three-month wet season that closes the road entirely. The east coast spreads its rainfall across the year &mdash; less dramatic, but it adds up to more millimetres than the Gibb sees most years.</p>
+    </div>
+    <div class="chart-wrap"><div id="c-rainfall"></div></div>
+    <p class="chart-caption">Same five stations as Section 05. Note how Nullarbor and Stuart sit dry all year.</p>
+  </div>
+</section>
+
+<section id="latitude">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">07 &middot; The geography of weather</p>
+      <h2>Cross more latitude, meet more weather</h2>
+      <p>Why does the Stuart Highway have such extreme seasonality, while the Great Ocean Road barely budges? The answer is mostly geographic. A route's latitude span determines how many climate zones it passes through.</p>
+    </div>
+    <div class="two-col">
+      <div class="chart-col">
+        <div class="chart-wrap"><div id="c-latitude"></div></div>
+        <p class="chart-caption">Dashed line marks the Tropic of Capricorn. Routes that cross it pass between tropical and temperate zones.</p>
+      </div>
+      <aside class="info-col">
+        <h4>Geography &rarr; Climate</h4>
+        <p style="font-size:0.92rem; color: var(--c-text-mute);">More latitude crossed = more climate zones = wider weather swings.</p>
+        <h4 style="margin-top: var(--s-4);">The two extremes</h4>
+        <div class="stat-list">
+          <div class="stat-row"><span class="label">Stuart Highway</span><span class="value">20.0&deg;</span></div>
+          <div class="stat-row"><span class="label">Great Ocean Road</span><span class="value">0.4&deg;</span></div>
+        </div>
+        <p class="takeaway">The Stuart crosses 50 times more latitude than the Great Ocean Road. That's why one has wild seasonality and the other doesn't.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="fingerprint">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">08 &middot; A climate fingerprint</p>
+      <h2>Every route's year, drawn as a journey</h2>
+      <p>One last way to see it. Each route's twelve months are connected as a loop on temperature and rainfall. The shape <em>is</em> the climate. Three signatures jump out:</p>
+    </div>
+    <div class="chart-wrap"><div id="c-scatter"></div></div>
+    <div class="insight-grid">
+      <div class="insight-card gibb">
+        <h4>Gibb's vertical drop</h4>
+        <p>The green loop falls almost straight down &mdash; the wet season ending, rainfall plummeting from 180&nbsp;mm in January to under 5&nbsp;mm by June. Same temperature, totally different road.</p>
+      </div>
+      <div class="insight-card pacific">
+        <h4>Pacific's high arc</h4>
+        <p>The pink curve sits up in the rainfall axis all year. Endless summer rain. No dramatic seasons &mdash; just a long wet stretch the east coast has learned to live with.</p>
+      </div>
+      <div class="insight-card null">
+        <h4>Nullarbor barely moves</h4>
+        <p>The yellow line is the tightest cluster on the chart. The driest, mildest climate of any iconic route. That's why it's driveable every month of the year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gibb">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">09 &middot; A year on one road</p>
+      <h2>The Gibb River Road has the narrowest window in Australia</h2>
+      <p>The Gibb is the country's most seasonally extreme drive. Its year reads like a clock face. Six months are open, six are not.</p>
+    </div>
+    <div class="two-col">
+      <div class="chart-col">
+        <div class="chart-wrap"><div id="c-radial"></div></div>
+        <p class="chart-caption">Each wedge is one month. The number inside each wedge is the average rainfall in millimetres.</p>
+      </div>
+      <aside class="info-col">
+        <h4>The wet season</h4>
+        <p style="font-size:0.92rem;">January peaks at <strong>182&nbsp;mm</strong> of rain. The road is officially closed; rivers cross the track. Unusable for travellers.</p>
+        <h4 style="margin-top: var(--s-4);">The dry season</h4>
+        <p style="font-size:0.92rem;">May to September averages <strong>under 5&nbsp;mm</strong> per month. Hot and dry. Ideal driving conditions.</p>
+        <h4 style="margin-top: var(--s-4);">The window</h4>
+        <p style="font-size:0.92rem;">Six months out of twelve. Miss your window and you wait a full year for the next.</p>
+        <p class="takeaway">The Gibb isn't a "drive when you can" road. It's a "drive exactly now" road.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="takeaway">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">10 &middot; The takeaway</p>
+      <h2>So when do you go?</h2>
+      <p>Not all road trips play by the same rules. Pick the row that matches your constraint and start there.</p>
+    </div>
+    <div class="decision-grid">
+      <div class="decision-card flexible">
+        <p class="when">If you're flexible on dates</p>
+        <p class="pick">Stuart Highway or Nullarbor</p>
+        <p class="why">Both will accept you almost any month. The Stuart shines in winter; a summer crossing is doable if you're prepared. The Nullarbor is the steadiest road of all five.</p>
+      </div>
+      <div class="decision-card summer">
+        <p class="when">If you can only travel in summer</p>
+        <p class="pick">Great Ocean Road</p>
+        <p class="why">Cool ocean breeze, peak season, dry-ish weather. Avoid the Gibb (closed) and the Pacific Highway (wettest months of the year). Stuart is doable but hot.</p>
+      </div>
+      <div class="decision-card winter">
+        <p class="when">If you can only travel in winter</p>
+        <p class="pick">Pacific Highway or Gibb</p>
+        <p class="why">Both shine in the dry, cool months. The Pacific is at its driest; the Gibb is at its prime. The Great Ocean Road gets a touch cold and damp.</p>
+      </div>
+      <div class="decision-card narrow">
+        <p class="when">If you want the Gibb specifically</p>
+        <p class="pick">May to September only</p>
+        <p class="why">The narrowest window of any iconic Australian drive. The Gibb has one open season per year. Miss it and you wait twelve months for the next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <h3>Data sources</h3>
+        <ul>
+          <li><strong>Climate:</strong> Bureau of Meteorology &mdash; long-term monthly averages. <a href="http://www.bom.gov.au/climate/averages/" target="_blank" rel="noopener">bom.gov.au/climate/averages</a></li>
+          <li><strong>Tourism:</strong> Tourism Research Australia &mdash; domestic overnight visitor data, year ending 2023&ndash;24. <a href="https://www.tra.gov.au/" target="_blank" rel="noopener">tra.gov.au</a></li>
+          <li><strong>Route distances:</strong> Visit Victoria, Tourism WA, Main Roads NT, Wikipedia (gazetted highway lengths).</li>
+          <li><strong>Map geometry:</strong> Australian states GeoJSON via <a href="https://github.com/rowanhogan/australian-states" target="_blank" rel="noopener">rowanhogan/australian-states</a>.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>About this work</h3>
+        <p>Built with <a href="https://vega.github.io/vega-lite/" target="_blank" rel="noopener">Vega-Lite</a> v5. All ten visualisations are JSON specifications you can inspect in this site's <a href="https://github.com/virgohil16/australia-by-road" target="_blank" rel="noopener">GitHub repository</a>. The drive score is derived data, computed transparently from the climate inputs above.</p>
+        <h4>AI acknowledgement</h4>
+        <p>As permitted by the assignment brief, Claude (Anthropic) was used to assist with Vega-Lite syntax, CSS layout, prose editing, and data-pipeline troubleshooting. All design decisions &mdash; the thesis, the drive-score formula and thresholds, the chart choices, the story flow &mdash; were made by the author.</p>
+      </div>
+    </div>
+    <div class="credits">
+      &copy; 2026 Vir Gohil &middot; Student ID 35608900 &middot; FIT2179 Data Visualisation 2, Monash University.
+    </div>
+  </div>
+</footer>
+
+<script>
+  const opts = { actions: false, renderer: "svg" };
+  const charts = [
+    { id: "c-choropleth",        spec: "vega/choropleth.json" },
+    { id: "c-hero-map",          spec: "vega/hero-map.json" },
+    { id: "c-route-cards",       spec: "vega/route-cards.json" },
+    { id: "c-km-per-month",      spec: "vega/km-per-month.json" },
+    { id: "c-seasonality",       spec: "vega/seasonality-heatmap.json" },
+    { id: "c-climate-multiples", spec: "vega/climate-multiples.json" },
+    { id: "c-rainfall",          spec: "vega/rainfall-heatmap.json" },
+    { id: "c-latitude",          spec: "vega/latitude-span.json" },
+    { id: "c-scatter",           spec: "vega/connected-scatter.json" },
+    { id: "c-radial",            spec: "vega/radial-year.json" }
+  ];
+  charts.forEach(c => vegaEmbed("#" + c.id, c.spec, opts).catch(err => console.error("Failed: " + c.spec, err)));
+
+  const sections = ["hero","context","routes","glance","argument","temperature","rain","latitude","fingerprint","gibb"];
+  const navLinks = document.querySelectorAll(".side-nav a");
+  function updateActive() {
+    let active = "hero";
+    const y = window.scrollY + window.innerHeight / 3;
+    for (const id of sections) {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= y) active = id;
+    }
+    navLinks.forEach(a => a.classList.toggle("active", a.dataset.target === active));
+  }
+  window.addEventListener("scroll", updateActive, { passive: true });
+  updateActive();
+</script>
+
+</body>
+</html>

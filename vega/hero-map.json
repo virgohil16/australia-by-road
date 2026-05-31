@@ -1,0 +1,185 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 640,
+  "height": 520,
+  "projection": {
+    "type": "mercator",
+    "center": [
+      134,
+      -27
+    ],
+    "scale": 640
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/aus_states.json",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#EDE7DC",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "tooltip": {
+          "field": "properties.STATE_NAME",
+          "type": "nominal",
+          "title": "State"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/route_paths.json"
+      },
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3,
+        "strokeCap": "round",
+        "strokeJoin": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "order": {
+          "field": "order",
+          "type": "ordinal"
+        },
+        "color": {
+          "field": "route",
+          "type": "nominal",
+          "title": "Route",
+          "scale": {
+            "domain": [
+              "Great Ocean Road",
+              "Gibb River Road",
+              "Stuart Highway",
+              "Pacific Highway",
+              "Nullarbor Crossing"
+            ],
+            "range": [
+              "#C0612F",
+              "#1F7A5A",
+              "#3E6FB0",
+              "#B23A6E",
+              "#E0A82E"
+            ]
+          },
+          "legend": null
+        },
+        "detail": {
+          "field": "route",
+          "type": "nominal"
+        },
+        "tooltip": [
+          {
+            "field": "route",
+            "type": "nominal",
+            "title": "Route"
+          },
+          {
+            "field": "town",
+            "type": "nominal",
+            "title": "Stop"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/route_paths.json"
+      },
+      "mark": {
+        "type": "circle",
+        "size": 28,
+        "opacity": 0.9
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "route",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Great Ocean Road",
+              "Gibb River Road",
+              "Stuart Highway",
+              "Pacific Highway",
+              "Nullarbor Crossing"
+            ],
+            "range": [
+              "#C0612F",
+              "#1F7A5A",
+              "#3E6FB0",
+              "#B23A6E",
+              "#E0A82E"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "town",
+            "type": "nominal",
+            "title": "Stop"
+          },
+          {
+            "field": "route",
+            "type": "nominal",
+            "title": "On route"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, sans-serif",
+    "background": "transparent",
+    "axis": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#6B635A",
+      "titleColor": "#2A2520",
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "domainColor": "#D8CFBE",
+      "tickColor": "#D8CFBE",
+      "gridColor": "#EDE7DC",
+      "gridOpacity": 0.6
+    },
+    "legend": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520",
+      "titleColor": "#2A2520",
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    },
+    "header": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520"
+    }
+  }
+}

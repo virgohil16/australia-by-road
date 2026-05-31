@@ -1,0 +1,157 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/km_per_month.json"
+  },
+  "width": 880,
+  "height": 260,
+  "transform": [
+    {
+      "calculate": "datum.km_per_ideal_month + ' km'",
+      "as": "label"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "route",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {
+        "labelFontSize": 13,
+        "labelLimit": 200,
+        "ticks": false,
+        "domain": false
+      },
+      "title": null
+    },
+    "x": {
+      "field": "km_per_ideal_month",
+      "type": "quantitative",
+      "title": "Driving km per ideal-driving month",
+      "axis": {
+        "gridOpacity": 0.3
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "height": 4,
+        "cornerRadius": 2,
+        "color": "#5C534A"
+      },
+      "encoding": {
+        "color": {
+          "field": "route",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Great Ocean Road",
+              "Gibb River Road",
+              "Stuart Highway",
+              "Pacific Highway",
+              "Nullarbor Crossing"
+            ],
+            "range": [
+              "#C0612F",
+              "#1F7A5A",
+              "#3E6FB0",
+              "#B23A6E",
+              "#E0A82E"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 200,
+        "stroke": "#FBF8F3",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "color": {
+          "field": "route",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Great Ocean Road",
+              "Gibb River Road",
+              "Stuart Highway",
+              "Pacific Highway",
+              "Nullarbor Crossing"
+            ],
+            "range": [
+              "#C0612F",
+              "#1F7A5A",
+              "#3E6FB0",
+              "#B23A6E",
+              "#E0A82E"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "route",
+            "type": "nominal",
+            "title": "Route"
+          },
+          {
+            "field": "distance_km",
+            "type": "quantitative",
+            "title": "Distance (km)",
+            "format": ","
+          },
+          {
+            "field": "ideal_months",
+            "type": "quantitative",
+            "title": "Ideal months/year"
+          },
+          {
+            "field": "km_per_ideal_month",
+            "type": "quantitative",
+            "title": "km per ideal month"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "field": "label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, sans-serif",
+    "background": "transparent",
+    "axis": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#6B635A",
+      "titleColor": "#2A2520",
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "domainColor": "#D8CFBE",
+      "tickColor": "#D8CFBE",
+      "gridColor": "#EDE7DC",
+      "gridOpacity": 0.6
+    }
+  }
+}

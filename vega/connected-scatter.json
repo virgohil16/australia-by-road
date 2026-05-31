@@ -1,0 +1,213 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/climate.json"
+  },
+  "width": 1080,
+  "height": 380,
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 1.8,
+        "opacity": 0.7,
+        "interpolate": "monotone"
+      },
+      "encoding": {
+        "x": {
+          "field": "max_temp",
+          "type": "quantitative",
+          "title": "Max temperature (\u00b0C)",
+          "scale": {
+            "domain": [
+              10,
+              40
+            ]
+          },
+          "axis": {
+            "labelFontSize": 11,
+            "titleFontSize": 12,
+            "gridOpacity": 0.3
+          }
+        },
+        "y": {
+          "field": "rainfall",
+          "type": "quantitative",
+          "title": "Rainfall (mm)",
+          "scale": {
+            "domain": [
+              0,
+              270
+            ]
+          },
+          "axis": {
+            "labelFontSize": 11,
+            "titleFontSize": 12,
+            "gridOpacity": 0.3
+          }
+        },
+        "order": {
+          "field": "month_n",
+          "type": "ordinal"
+        },
+        "color": {
+          "field": "route",
+          "type": "nominal",
+          "title": "Route",
+          "scale": {
+            "domain": [
+              "Great Ocean Road",
+              "Gibb River Road",
+              "Stuart Highway",
+              "Pacific Highway",
+              "Nullarbor Crossing"
+            ],
+            "range": [
+              "#C0612F",
+              "#1F7A5A",
+              "#3E6FB0",
+              "#B23A6E",
+              "#E0A82E"
+            ]
+          },
+          "legend": {
+            "orient": "top-right",
+            "fillColor": "white",
+            "padding": 8,
+            "titleFontSize": 12,
+            "labelFontSize": 11
+          }
+        },
+        "detail": {
+          "field": "route"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 55,
+        "opacity": 0.85,
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "max_temp",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "rainfall",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "route",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Great Ocean Road",
+              "Gibb River Road",
+              "Stuart Highway",
+              "Pacific Highway",
+              "Nullarbor Crossing"
+            ],
+            "range": [
+              "#C0612F",
+              "#1F7A5A",
+              "#3E6FB0",
+              "#B23A6E",
+              "#E0A82E"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "route",
+            "type": "nominal"
+          },
+          {
+            "field": "month",
+            "type": "nominal"
+          },
+          {
+            "field": "max_temp",
+            "type": "quantitative",
+            "title": "Temp (\u00b0C)"
+          },
+          {
+            "field": "rainfall",
+            "type": "quantitative",
+            "title": "Rain (mm)"
+          },
+          {
+            "field": "rating",
+            "type": "nominal",
+            "title": "Drive rating"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.month === 'Jan'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 6,
+        "fontSize": 10,
+        "fontStyle": "italic",
+        "color": "#444"
+      },
+      "encoding": {
+        "x": {
+          "field": "max_temp",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "rainfall",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "Jan"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, sans-serif",
+    "background": "transparent",
+    "axis": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#6B635A",
+      "titleColor": "#2A2520",
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "domainColor": "#D8CFBE",
+      "tickColor": "#D8CFBE",
+      "gridColor": "#EDE7DC",
+      "gridOpacity": 0.6
+    },
+    "legend": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520",
+      "titleColor": "#2A2520",
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    },
+    "header": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520"
+    }
+  }
+}

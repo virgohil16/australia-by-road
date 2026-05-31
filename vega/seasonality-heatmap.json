@@ -1,0 +1,155 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/climate.json"
+  },
+  "width": 460,
+  "height": 240,
+  "mark": {
+    "type": "rect",
+    "stroke": "white",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "nominal",
+      "sort": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ],
+      "title": null,
+      "axis": {
+        "orient": "top",
+        "labelFontSize": 12,
+        "labelAngle": 0,
+        "ticks": false,
+        "domain": false,
+        "labelFont": "Inter, sans-serif",
+        "labelColor": "#6B635A"
+      }
+    },
+    "y": {
+      "field": "route",
+      "type": "nominal",
+      "sort": [
+        "Gibb River Road",
+        "Pacific Highway",
+        "Great Ocean Road",
+        "Stuart Highway",
+        "Nullarbor Crossing"
+      ],
+      "title": null,
+      "axis": {
+        "labelFontSize": 13,
+        "ticks": false,
+        "domain": false,
+        "labelLimit": 180,
+        "labelFont": "Inter, sans-serif",
+        "labelColor": "#2A2520"
+      }
+    },
+    "color": {
+      "field": "drive_score",
+      "type": "quantitative",
+      "title": "Drive score",
+      "scale": {
+        "scheme": "redyellowgreen",
+        "domain": [
+          40,
+          100
+        ]
+      },
+      "legend": {
+        "orient": "right",
+        "gradientLength": 120,
+        "titleFontSize": 12,
+        "labelFontSize": 11
+      }
+    },
+    "tooltip": [
+      {
+        "field": "route",
+        "type": "nominal",
+        "title": "Route"
+      },
+      {
+        "field": "month",
+        "type": "nominal",
+        "title": "Month"
+      },
+      {
+        "field": "drive_score",
+        "type": "quantitative",
+        "title": "Drive score"
+      },
+      {
+        "field": "rating",
+        "type": "nominal",
+        "title": "Rating"
+      },
+      {
+        "field": "max_temp",
+        "type": "quantitative",
+        "title": "Avg max temp (\u00b0C)"
+      },
+      {
+        "field": "rainfall",
+        "type": "quantitative",
+        "title": "Avg rainfall (mm)"
+      },
+      {
+        "field": "reason",
+        "type": "nominal",
+        "title": "Why"
+      },
+      {
+        "field": "town",
+        "type": "nominal",
+        "title": "Weather station"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, sans-serif",
+    "background": "transparent",
+    "axis": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#6B635A",
+      "titleColor": "#2A2520",
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "domainColor": "#D8CFBE",
+      "tickColor": "#D8CFBE",
+      "gridColor": "#EDE7DC",
+      "gridOpacity": 0.6
+    },
+    "legend": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520",
+      "titleColor": "#2A2520",
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    },
+    "header": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520"
+    }
+  }
+}

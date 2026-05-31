@@ -1,0 +1,230 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/routes.json"
+  },
+  "hconcat": [
+    {
+      "title": {
+        "text": "Distance (km)",
+        "fontSize": 13,
+        "fontWeight": "normal",
+        "color": "#444"
+      },
+      "width": 220,
+      "height": 200,
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "route",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null,
+          "axis": {
+            "labelFontSize": 12,
+            "labelLimit": 200
+          }
+        },
+        "x": {
+          "field": "distance_km",
+          "type": "quantitative",
+          "title": null,
+          "axis": {
+            "labelFontSize": 10,
+            "labelExpr": "format(datum.value, ',d')",
+            "tickCount": 5
+          }
+        },
+        "color": {
+          "field": "route",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Great Ocean Road",
+              "Gibb River Road",
+              "Stuart Highway",
+              "Pacific Highway",
+              "Nullarbor Crossing"
+            ],
+            "range": [
+              "#C0612F",
+              "#1F7A5A",
+              "#3E6FB0",
+              "#B23A6E",
+              "#E0A82E"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "route",
+            "type": "nominal"
+          },
+          {
+            "field": "distance_km",
+            "type": "quantitative",
+            "title": "Distance (km)",
+            "format": ","
+          },
+          {
+            "field": "start",
+            "type": "nominal",
+            "title": "From"
+          },
+          {
+            "field": "end",
+            "type": "nominal",
+            "title": "To"
+          }
+        ]
+      }
+    },
+    {
+      "title": {
+        "text": "Days needed",
+        "fontSize": 13,
+        "fontWeight": "normal",
+        "color": "#444"
+      },
+      "width": 140,
+      "height": 200,
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "route",
+          "type": "nominal",
+          "sort": {
+            "field": "distance_km",
+            "order": "descending"
+          },
+          "title": null,
+          "axis": null
+        },
+        "x": {
+          "field": "days",
+          "type": "quantitative",
+          "title": null,
+          "axis": {
+            "labelFontSize": 10,
+            "values": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          }
+        },
+        "color": {
+          "field": "route",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "Great Ocean Road",
+              "Gibb River Road",
+              "Stuart Highway",
+              "Pacific Highway",
+              "Nullarbor Crossing"
+            ],
+            "range": [
+              "#C0612F",
+              "#1F7A5A",
+              "#3E6FB0",
+              "#B23A6E",
+              "#E0A82E"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "route",
+            "type": "nominal"
+          },
+          {
+            "field": "days",
+            "type": "quantitative",
+            "title": "Suggested days"
+          }
+        ]
+      }
+    },
+    {
+      "title": {
+        "text": "From  \u2192  To",
+        "fontSize": 13,
+        "fontWeight": "normal",
+        "color": "#444"
+      },
+      "width": 200,
+      "height": 200,
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "align": "left",
+        "color": "#333"
+      },
+      "encoding": {
+        "y": {
+          "field": "route",
+          "type": "nominal",
+          "sort": {
+            "field": "distance_km",
+            "order": "descending"
+          },
+          "axis": null
+        },
+        "text": {
+          "field": "start_end",
+          "type": "nominal"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "datum.start + ' \u2192 ' + datum.end",
+          "as": "start_end"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, sans-serif",
+    "background": "transparent",
+    "axis": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#6B635A",
+      "titleColor": "#2A2520",
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "domainColor": "#D8CFBE",
+      "tickColor": "#D8CFBE",
+      "gridColor": "#EDE7DC",
+      "gridOpacity": 0.6
+    },
+    "legend": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520",
+      "titleColor": "#2A2520",
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    },
+    "header": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520"
+    }
+  },
+  "spacing": 8
+}

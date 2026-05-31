@@ -1,0 +1,213 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/climate.json"
+  },
+  "columns": 1,
+  "spacing": 6,
+  "facet": {
+    "field": "route",
+    "type": "nominal",
+    "title": null,
+    "header": {
+      "labelFontSize": 13,
+      "labelFontWeight": "bold",
+      "labelAnchor": "start",
+      "labelAlign": "left",
+      "labelOrient": "top",
+      "labelPadding": 2
+    },
+    "sort": [
+      "Gibb River Road",
+      "Pacific Highway",
+      "Great Ocean Road",
+      "Stuart Highway",
+      "Nullarbor Crossing"
+    ]
+  },
+  "spec": {
+    "width": 560,
+    "height": 80,
+    "layer": [
+      {
+        "mark": {
+          "type": "line",
+          "color": "#333",
+          "strokeWidth": 1.5,
+          "interpolate": "monotone"
+        },
+        "encoding": {
+          "x": {
+            "field": "month",
+            "type": "nominal",
+            "sort": [
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec"
+            ],
+            "title": null,
+            "axis": {
+              "labelFontSize": 11,
+              "ticks": false,
+              "domain": false
+            }
+          },
+          "y": {
+            "field": "max_temp",
+            "type": "quantitative",
+            "title": "Max temp (\u00b0C)",
+            "axis": {
+              "labelFontSize": 10,
+              "titleFontSize": 10,
+              "grid": false,
+              "values": [
+                15,
+                25,
+                35
+              ]
+            },
+            "scale": {
+              "domain": [
+                10,
+                40
+              ]
+            }
+          }
+        }
+      },
+      {
+        "mark": {
+          "type": "circle",
+          "size": 130,
+          "stroke": "white",
+          "strokeWidth": 1.5
+        },
+        "encoding": {
+          "x": {
+            "field": "month",
+            "type": "nominal",
+            "sort": [
+              "Jan",
+              "Feb",
+              "Mar",
+              "Apr",
+              "May",
+              "Jun",
+              "Jul",
+              "Aug",
+              "Sep",
+              "Oct",
+              "Nov",
+              "Dec"
+            ]
+          },
+          "y": {
+            "field": "max_temp",
+            "type": "quantitative"
+          },
+          "color": {
+            "field": "rating",
+            "type": "nominal",
+            "title": "Rating",
+            "scale": {
+              "domain": [
+                "Ideal",
+                "OK",
+                "Avoid"
+              ],
+              "range": [
+                "#1F7A3F",
+                "#E8B83A",
+                "#C84031"
+              ]
+            },
+            "legend": {
+              "orient": "right",
+              "titleFontSize": 12,
+              "labelFontSize": 11,
+              "symbolSize": 140
+            }
+          },
+          "tooltip": [
+            {
+              "field": "town",
+              "type": "nominal",
+              "title": "Town"
+            },
+            {
+              "field": "month",
+              "type": "nominal"
+            },
+            {
+              "field": "max_temp",
+              "type": "quantitative",
+              "title": "Max temp (\u00b0C)"
+            },
+            {
+              "field": "rainfall",
+              "type": "quantitative",
+              "title": "Rainfall (mm)"
+            },
+            {
+              "field": "drive_score",
+              "type": "quantitative",
+              "title": "Drive score"
+            },
+            {
+              "field": "rating",
+              "type": "nominal",
+              "title": "Rating"
+            },
+            {
+              "field": "reason",
+              "type": "nominal",
+              "title": "Why"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Inter, sans-serif",
+    "background": "transparent",
+    "axis": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#6B635A",
+      "titleColor": "#2A2520",
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "domainColor": "#D8CFBE",
+      "tickColor": "#D8CFBE",
+      "gridColor": "#EDE7DC",
+      "gridOpacity": 0.6
+    },
+    "legend": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520",
+      "titleColor": "#2A2520",
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    },
+    "header": {
+      "labelFont": "Inter, sans-serif",
+      "titleFont": "Inter, sans-serif",
+      "labelColor": "#2A2520"
+    }
+  },
+  "width": 1080
+}

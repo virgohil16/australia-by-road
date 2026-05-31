@@ -1,0 +1,62 @@
+[
+  {
+    "route": "Great Ocean Road",
+    "short": "GOR",
+    "state": "VIC",
+    "distance_km": 243,
+    "start": "Torquay",
+    "end": "Allansford",
+    "region": "Surf Coast / Shipwreck Coast",
+    "source": "Visit Victoria; Australian National Heritage List",
+    "source_url": "https://www.visitvictoria.com/regions/great-ocean-road",
+    "days": 2
+  },
+  {
+    "route": "Gibb River Road",
+    "short": "Gibb",
+    "state": "WA",
+    "distance_km": 660,
+    "start": "Derby",
+    "end": "Kununurra",
+    "region": "Kimberley",
+    "source": "Tourism Western Australia; Tourism Australia",
+    "source_url": "https://www.australia.com/en/trips-and-itineraries/broome-and-surrounds/the-gibb-river-road-itinerary.html",
+    "days": 2
+  },
+  {
+    "route": "Stuart Highway",
+    "short": "Stuart",
+    "state": "NT / SA",
+    "distance_km": 2720,
+    "start": "Darwin",
+    "end": "Port Augusta",
+    "region": "Red Centre / Outback",
+    "source": "Main Roads; Wikipedia (gazetted highway length)",
+    "source_url": "https://en.wikipedia.org/wiki/Stuart_Highway",
+    "days": 5
+  },
+  {
+    "route": "Pacific Highway",
+    "short": "Pacific",
+    "state": "NSW / QLD",
+    "distance_km": 790,
+    "start": "Sydney",
+    "end": "Brisbane",
+    "region": "East Coast",
+    "source": "Wikipedia; NSW transport",
+    "source_url": "https://en.wikipedia.org/wiki/Pacific_Highway_(Australia)",
+    "days": 2
+  },
+  {
+    "route": "Nullarbor Crossing",
+    "short": "Null",
+    "state": "WA / SA",
+    "distance_km": 1200,
+    "start": "Norseman",
+    "end": "Ceduna",
+    "region": "Eyre Highway / Nullarbor Plain",
+    "source": "Wikipedia (Eyre Highway); tourism guides",
+    "source_url": "https://en.wikipedia.org/wiki/Eyre_Highway",
+    "days": 2
+  }
+]
