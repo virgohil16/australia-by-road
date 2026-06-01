@@ -71,11 +71,10 @@
             ]
           },
           "legend": {
-            "orient": "top-right",
-            "fillColor": "white",
-            "padding": 8,
+            "orient": "right",
             "titleFontSize": 12,
-            "labelFontSize": 11
+            "labelFontSize": 11,
+            "offset": 10
           }
         },
         "detail": {
@@ -176,6 +175,24 @@
           "value": "Jan"
         }
       }
+    },
+    {
+      "data": {"values": [{"x": 25, "y": 250, "label": "Pacific peak: 250 mm in March"}]},
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "dy": -10,
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#B23A6E",
+        "font": "Inter, sans-serif"
+      },
+      "encoding": {
+        "x": {"field": "x", "type": "quantitative"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "label"}
+      }
     }
   ],
   "config": {
@@ -202,7 +219,10 @@
       "labelColor": "#2A2520",
       "titleColor": "#2A2520",
       "labelFontSize": 12,
-      "titleFontSize": 12
+      "titleFontSize": 12,
+      "fillColor": null,
+      "strokeColor": null,
+      "padding": 0
     },
     "header": {
       "labelFont": "Inter, sans-serif",
